@@ -193,74 +193,78 @@ while True:
 ### Рабочий вариант
 
 
-# Класс «Клиент» содержит поля: код клиента, ФИО, дата открытия вклада, размер
-# вклада, процент по вкладу.
-# Класс «Банк» (class Bank) содержит поле clientBase представляющем собой список
-# клиентов и методами:
-# – addClient(client) — принимает обьект клиента и помещает его в base.
-# – showByMoney(money) — принимает количество денег и выводит информацию о всех
-# клиентах у которых размер вклада больше
-# – showByCode(cod) — принимает код и выводит всю информацию клиенте с данным
-# кодом.
-# – showByProc(proc) — принимает процент и выводит информацию о всех клиентах у
-# которых процент по вкладу больше данного.
+Класс «Клиент» содержит поля: код клиента, ФИО, дата открытия вклада, размер
+вклада, процент по вкладу.
+Класс «Банк» (class Bank) содержит поле clientBase представляющем собой список
+клиентов и методами:
+– addClient(client) — принимает обьект клиента и помещает его в base.
+– showByMoney(money) — принимает количество денег и выводит информацию о всех
+клиентах у которых размер вклада больше
+– showByCode(cod) — принимает код и выводит всю информацию клиенте с данным
+кодом.
+– showByProc(proc) — принимает процент и выводит информацию о всех клиентах у
+которых процент по вкладу больше данного.
 
-#
-# class Client():
-#     def _init_(self, base = {}):
-#         self.base = base
-#
-#     def addClient(self):
-#         self.base = {}
-#         adds = input('Хотите ввести клиента? да/нет')
-#         count = 0
-#         while adds != 'нет':
-#             count += 1
-#             cod = count
-#             fio = input("Введите ФИО клиента: ")
-#             data = int(input("Введите дату: "))
-#             vklad = int(input("Введите вклад: "))
-#             procent = int(input("Введите процент вклада: "))
-#             adds = input('Хотите ввести клиента? да/нет')
-#             self.base[cod] = [fio, data, vklad, procent]
-#
-#     def showByMoney(self):
-#         summa = int(input("Введите сумму: "))
-#         for price in self.base.values():
-#             num = price[2]
-#             if num > summa:
-#                 fio = price[0]
-#                 print(fio, '-', num)
-#
-#     def showByCode(self):
-#         codes = int(input("Введите код клиента: "))
-#         if codes in self.base.keys():
-#             print(self.base[codes])
-#         else:
-#             print("Клиента с таким кодом не существует")
-#
-#     def showByProc(self):
-#         proc = int(input("Введите размер процента: "))
-#         for pricent in self.base.values():
-#             nums = pricent[3]
-#             if nums > proc:
-#                 fio = pricent[0]
-#                 print(fio, '-', nums)
-#
-# print("ВАС ПРИВЕТСВУЕТ СИСТЕМА БАНКА \n")
-# print("Выберете меню: ")
-# total = int(input("1. Ввести клиента\n2. Запросить сумму вклада\n3. Вывести клиента по коду\n4. ЗАпросить сумму процента\n"))
-# obj = Client()
-# while True:
-#     if total == 1:
-#         obj.addClient()
-#     elif total == 2:
-#         obj.showByMoney()
-#     elif total == 3:
-#         obj.showByCode()
-#     elif total == 4:
-#         obj.showByProc()
-#     else:
-#         print("Такого пункта нет")
-#
-#     total = int(input("1. Ввести клиента\n 2. Запросить сумму вклада\n 3. Вывести клиента по коду\n 4. ЗАпросить сумму процента\n"))
+
+class Client():
+    def _init_(self, base = {}):
+        self.base = base
+
+    def addClient(self):
+        self.base = {}
+        adds = input('Хотите ввести клиента? да/нет')
+        count = 0
+        while adds != 'нет':
+            count += 1
+            cod = count
+            fio = input("Введите ФИО клиента: ")
+            data = int(input("Введите дату: "))
+            vklad = int(input("Введите вклад: "))
+            procent = int(input("Введите процент вклада: "))
+            adds = input('Хотите ввести клиента? да/нет')
+            self.base[cod] = [fio, data, vklad, procent]
+
+    def showByMoney(self):
+        summa = int(input("Введите сумму: "))
+        for price in self.base.values():
+            num = price[2]
+            if num > summa:
+                fio = price[0]
+                print(fio, '-', num)
+
+    def showByCode(self):
+        codes = int(input("Введите код клиента: "))
+        if codes in self.base.keys():
+            print(self.base[codes])
+        else:
+            print("Клиента с таким кодом не существует")
+
+    def showByProc(self):
+        proc = int(input("Введите размер процента: "))
+        for pricent in self.base.values():
+            nums = pricent[3]
+            if nums > proc:
+                fio = pricent[0]
+                print(fio, '-', nums)
+
+print("ВАС ПРИВЕТСВУЕТ СИСТЕМА БАНКА \n")
+print("Выберете меню: ")
+total = int(input("1. Ввести клиента\n2. Запросить сумму вклада\n3. Вывести клиента по коду\n4. ЗАпросить сумму процента\n"))
+obj = Client()
+while True:
+    if total == 1:
+        obj.addClient()
+    elif total == 2:
+        obj.showByMoney()
+    elif total == 3:
+        obj.showByCode()
+    elif total == 4:
+        obj.showByProc()
+    else:
+        print("Такого пункта нет")
+
+    total = int(input("1. Ввести клиента\n 2. Запросить сумму вклада\n 3. Вывести клиента по коду\n 4. ЗАпросить сумму процента\n"))
+
+fdsfdsfdf f rgerg
+gfdgerg erg er
+fdsfdsf
